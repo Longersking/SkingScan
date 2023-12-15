@@ -54,6 +54,16 @@ class CharacterTools:
         return result
 
 
+    #拼接多个字符串
+    def join_strings(string_list):
+        if not string_list:
+            return ""  # 如果列表为空，返回空字符串
+
+        result = "".join(string_list)
+        return result
+
+
+
 if __name__ == "__main__":
     character_tools = CharacterTools()
     # 测试
