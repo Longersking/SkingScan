@@ -1,5 +1,6 @@
 import difflib
 from bs4 import BeautifulSoup
+from config.text_config import *
 
 class CharacterTools:
     def __init__(self):
@@ -55,6 +56,7 @@ class CharacterTools:
 
 
     #拼接多个字符串
+    @staticmethod
     def join_strings(string_list):
         if not string_list:
             return ""  # 如果列表为空，返回空字符串
@@ -62,17 +64,39 @@ class CharacterTools:
         result = "".join(string_list)
         return result
 
+    #分隔ip和端口
+    @staticmethod
+    def split_ip_port(ip_port):
+        if ':' in ip_port:
+            a,b = ip_port.split(':')
+            return a,b
+        else:
+            return ip_port
+
+    #打印带有色彩的文本
+    @staticmethod
+    def show(string,model=0):
+        if model == green:
+            print('\033[32m' + string + '\033[0m')
+        elif model == blue:
+            print('\033[34m' + string + '\033[0m')
+        elif model == red:
+            print('\033[31m' + string + '\033[0m')
 
 
 if __name__ == "__main__":
     character_tools = CharacterTools()
-    # 测试
-    string_list = [
-        'your uid:1  your email is: pikachu',
-        'your uid:1  your email is: root@localhost',
-        'your uid:1  your email is: Win64',
-        'your uid:1  your email is: 5.7.26'
-    ]
-    result = character_tools.longest_common_substring(string_list)
-    print(character_tools.remove_substring(string_list,result))
+    # # 测试
+    # string_list = [
+    #     'your uid:1  your email is: pikachu',
+    #     'your uid:1  your email is: root@localhost',
+    #     'your uid:1  your email is: Win64',
+    #     'your uid:1  your email is: 5.7.26'
+    # ]
+    # result = character_tools.longest_common_substring(string_list)
+    # print(character_tools.remove_substring(string_list,result))
+    ip_host = "192.168.52.128:8080"
+    k,v = character_tools.split_ip_port(ip_host)
+    print(k)
+    print(v)
 

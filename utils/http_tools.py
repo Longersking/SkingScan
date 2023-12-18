@@ -1,8 +1,5 @@
 import urllib.request
-
 import requests
-import socket
-import socks
 from urllib.parse import urlparse, urlencode, parse_qs
 from copy import deepcopy
 

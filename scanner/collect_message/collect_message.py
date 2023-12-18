@@ -1,6 +1,7 @@
 import nmap
 import json
 from utils.http_tools import HTTPTools
+from utils.character_tools import CharacterTools
 from concurrent.futures import ThreadPoolExecutor
 from tqdm import tqdm
 
@@ -20,7 +21,12 @@ class WebsiteInfo:
     def scan_target(self):
         try:
             nm = nmap.PortScanner()
-            self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O',ports="20-800")['scan']
+            # 如果host为ip不能带上端口参数
+            if ':' in self.host:
+                self.host,port = CharacterTools.split_ip_port(self.host)
+                self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O', ports=port)['scan']
+            else:
+                self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O',ports="20-14000")['scan']
             print(self.scan_result)
         except nmap.PortScannerError as e:
             print(f"扫描错误: {e}")
@@ -64,12 +70,23 @@ class WebsiteInfo:
             "OS": self.os
         }, indent=4)
 
-# 示例用法
-if __name__ == "__main__":
-    url = "http://127.0.0.1/DVWA-master/index.php"
+
+#主方法
+def main(url):
     urls = HTTPTools.extract_urls(url)
     host = HTTPTools.extract_domain(url)
-    website = WebsiteInfo(url,urls, host)
+    website = WebsiteInfo(url, urls, host)
     website.get_website_info()
     result_json = website.to_json()
     print(result_json)
+
+# 示例用法
+if __name__ == "__main__":
+    url = "http://192.168.52.128:8080/"
+    main(url)
+    # urls = HTTPTools.extract_urls(url)
+    # host = HTTPTools.extract_domain(url)
+    # website = WebsiteInfo(url,urls, host)
+    # website.get_website_info()
+    # result_json = website.to_json()
+    # print(result_json)
