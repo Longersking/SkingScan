@@ -2,8 +2,11 @@ import nmap
 import json
 from utils.http_tools import HTTPTools
 from utils.character_tools import CharacterTools
-from concurrent.futures import ThreadPoolExecutor
-from tqdm import tqdm
+from utils.file_tools import FileTools
+from config.text_config import *
+
+# from concurrent.futures import ThreadPoolExecutor
+# from tqdm import tqdm
 
 class WebsiteInfo:
     def __init__(self, url,urls, host):
@@ -27,9 +30,9 @@ class WebsiteInfo:
                 self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O', ports=port)['scan']
             else:
                 self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O',ports="20-14000")['scan']
-            print(self.scan_result)
+            # CharacterTools.show(self.scan_result)
         except nmap.PortScannerError as e:
-            print(f"扫描错误: {e}")
+            CharacterTools.show(f"扫描错误: {e}",blue)
 
 
     def get_ip(self):
@@ -38,18 +41,18 @@ class WebsiteInfo:
         elif 'ipv6' in self.scan_result[self.host]['addresses']:
             self.ip_address = self.scan_result[self.host]['addresses']['ipv6']
         else:
-            print("未检测到对方ip信息")
+            CharacterTools.show("未检测到对方ip信息",blue)
     def get_open_ports(self):
         self.ports = list(self.product.keys())
-        print(self.ports)
+        # CharacterTools.show(self.ports)
 
     def get_os(self):
         self.os = self.scan_result[self.host]['osmatch'][0]['name']
-        # print(self.os)
+        # CharacterTools.show(self.os)
 
     def get_product(self):
         self.product = self.scan_result[self.host]['tcp']
-        # print(self.product)
+        # CharacterTools.show(self.product)
 
 
     def get_website_info(self):
@@ -78,7 +81,9 @@ def main(url):
     website = WebsiteInfo(url, urls, host)
     website.get_website_info()
     result_json = website.to_json()
-    print(result_json)
+    CharacterTools.show("[+]信息收集结果如下",red)
+    CharacterTools.show(result_json)
+    
 
 # 示例用法
 if __name__ == "__main__":
@@ -89,4 +94,4 @@ if __name__ == "__main__":
     # website = WebsiteInfo(url,urls, host)
     # website.get_website_info()
     # result_json = website.to_json()
-    # print(result_json)
+    # CharacterTools.show(result_json)
