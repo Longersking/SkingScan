@@ -27,6 +27,9 @@ def main():
         elif command == '-r':
             CharacterTools.show("-r 参数被指定")
             # 在这里执行 -r 参数的操作
+        elif command == 'vulscan':
+            CharacterTools.show("[+]漏洞利用交互模块",red)
+            vulscan.vulscan()
         elif command.startswith('-add'):
             parts = command.split()
             if len(parts) > 1:
