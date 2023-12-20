@@ -4,9 +4,10 @@ from utils.http_tools import HTTPTools
 from utils.character_tools import CharacterTools
 from utils.file_tools import FileTools
 from config.text_config import *
-
+import datetime
 # from concurrent.futures import ThreadPoolExecutor
 # from tqdm import tqdm
+from route import *
 
 class WebsiteInfo:
     def __init__(self, url,urls, host):
@@ -47,7 +48,11 @@ class WebsiteInfo:
         # CharacterTools.show(self.ports)
 
     def get_os(self):
-        self.os = self.scan_result[self.host]['osmatch'][0]['name']
+        # print(self.scan_result)
+        try:
+            self.os = self.scan_result[self.host]['osmatch'][0]['name']
+        except IndexError as e:
+            CharacterTools.show(f'[-]无法获取目标操作系统信息,问题显示{e}',blue)
         # CharacterTools.show(self.os)
 
     def get_product(self):
@@ -76,14 +81,24 @@ class WebsiteInfo:
 
 #主方法
 def main(url):
+    # 分隔多个url
     urls = HTTPTools.extract_urls(url)
     host = HTTPTools.extract_domain(url)
     website = WebsiteInfo(url, urls, host)
     website.get_website_info()
-    result_json = website.to_json()
+    result_data = website.to_json()
+    result_json = json.loads(result_data)
     CharacterTools.show("[+]信息收集结果如下",red)
-    CharacterTools.show(result_json)
-    
+    CharacterTools.show(result_data)
+    # 写入临时文件中
+    current_time = datetime.datetime.now()
+
+    file_name = DATA_DIR+r'\temp//' + current_time.strftime("%Y-%m-%d_%H-%M-%S") + "target_message.json"
+    FileTools.write_json_file(file_name,result_json)
+    # print("写入完成")
+
+    return result_json
+
 
 # 示例用法
 if __name__ == "__main__":

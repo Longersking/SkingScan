@@ -2,6 +2,8 @@ from utils.character_tools import CharacterTools
 from config.text_config import *
 import json
 import pandas as pd
+from route import *
+import pickle
 
 class FileTools:
     @staticmethod
@@ -110,3 +112,44 @@ class FileTools:
             data_frame.to_excel(file_path, index=False)
         except Exception as e:
             CharacterTools.show(f"写入Excel文件时出错: {e}", blue)
+
+    # 建立文件索引表
+    @staticmethod
+    def index_files(directory):
+        file_index = {}
+        for root, _, files in os.walk(directory):
+            for file in files:
+                file_path = os.path.join(root, file)
+                file_index[file] = file_path
+        file_index = {str(index): {'filename': filename, 'path': path} for index, (filename, path) in
+                        enumerate(file_index.items())}
+        return file_index
+
+    #保存索引
+    @staticmethod
+    def save_index(poc_dic,filename=DATA_DIR + r"\poc_dic.txt"):
+        with open(filename, 'wb') as file:
+            pickle.dump(poc_dic, file)
+
+    #读取索引
+    @staticmethod
+    def load_index(filename=DATA_DIR + r"\poc_dic.txt"):
+        try:
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except FileNotFoundError as e:
+            CharacterTools.show("[-]未建立文件索引",blue)
+
+
+if __name__ == '__main__':
+    file_tools = FileTools()
+    file_path = DATA_DIR + r"\pocs"
+    #
+    files_index = file_tools.index_files(file_path)
+    file_tools.save_index(poc_dic=files_index)
+    # # print(files_index)
+    # poc_dic = file_path + r"\poc_dic"
+    # # file_tools.save_index(poc_dic=files_index,filename=poc_dic)
+    # index = file_tools.load_index(poc_dic)
+    # print(index)
+    # file_tools.save_index(files_index)

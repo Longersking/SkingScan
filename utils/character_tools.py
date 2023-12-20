@@ -76,6 +76,7 @@ class CharacterTools:
     #打印带有色彩的文本
     @staticmethod
     def show(string,model=0):
+        string = str(string)
         if model == green:
             print('\033[32m' + string + '\033[0m')
         elif model == blue:

@@ -2,6 +2,7 @@ from route import *
 from utils.character_tools import CharacterTools
 from config.text_config import *
 from scanner.collect_message import collect_message
+from scanner.exploiter import vulscan
 def main():
     CharacterTools.show(logo)
     while True:
@@ -16,7 +17,8 @@ def main():
             if len(parts) > 1:
                 url = parts[1]
                 CharacterTools.show(f"[*]输入的URL是: {url}")
-                collect_message.main(url)
+                message_data = collect_message.main(url)
+                print(vulscan.handle_message(message_data))
                 # 在这里调用你的函数，并将URL作为参数传递
                 # route_function(url)
             else:
@@ -40,4 +42,4 @@ def main():
             CharacterTools.show("未指定参数或使用了无效参数，请使用 help 查看可用参数",blue)
 
 if __name__ == "__main__":
-    main( )
+    main()
