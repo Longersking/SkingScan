@@ -27,7 +27,7 @@ vulscan_help_text =  """
                 " set values : 设置攻击参数"
                 " set payload : 设置攻击载荷"
                 " run :开始攻击"
-                "  help :查看参数帮助"
+                " help :查看参数帮助"
           
             """
 

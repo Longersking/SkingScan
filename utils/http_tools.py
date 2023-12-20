@@ -1,6 +1,7 @@
 import urllib.request
 import requests
 from urllib.parse import urlparse, urlencode, parse_qs
+import json
 from copy import deepcopy
 
 class HTTPTools:
@@ -29,14 +30,14 @@ class HTTPTools:
             return None
 
     @staticmethod
-    def send_http_request(url, request_data=None, headers=None, proxy_method='http',proxies=None):
+    def send_http_request(url, request_data=None, headers=None, proxy_method='http',proxies=None,method='GET'):
         if proxies:  # 如果传入了代理地址和端口
             http_proxy_handler = urllib.request.ProxyHandler({proxy_method: proxies})
             opener = urllib.request.build_opener(http_proxy_handler)
         else:  # 如果没有传入代理地址和端口
             opener = urllib.request.build_opener()
-
-        request = urllib.request.Request(url=url, headers=headers, data=request_data)
+        request_data = json.dumps(request_data).encode('utf-8')
+        request = urllib.request.Request(url=url, headers=headers, data=request_data,method=method)
         response = opener.open(request)
         print(response.read().decode('utf-8'))
 
