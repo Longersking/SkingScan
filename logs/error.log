@@ -1,0 +1,42 @@
+2023-12-20 18:56:22,597 - ERROR - Unhandled exception: <class 'KeyError'>, ''
+2023-12-20 18:56:22,598 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 71, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 42, in main
+    message_data = collect_message.main(url)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 88, in main
+    website.get_website_info()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 65, in get_website_info
+    self.get_os()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 53, in get_os
+    self.os = self.scan_result[self.host]['osmatch'][0]['name']
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+
+2023-12-20 18:56:41,479 - ERROR - Unhandled exception: <class 'KeyError'>, ''
+2023-12-20 18:56:41,480 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 71, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 42, in main
+    message_data = collect_message.main(url)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 88, in main
+    website.get_website_info()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 65, in get_website_info
+    self.get_os()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 53, in get_os
+    self.os = self.scan_result[self.host]['osmatch'][0]['name']
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+
+2023-12-20 18:56:52,253 - ERROR - Unhandled exception: <class 'KeyError'>, ''
+2023-12-20 18:56:52,253 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 75, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 42, in main
+    message_data = collect_message.main(url)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 88, in main
+    website.get_website_info()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 65, in get_website_info
+    self.get_os()
+  File "D:\python_project\SkingScan\scanner\collect_message\collect_message.py", line 53, in get_os
+    self.os = self.scan_result[self.host]['osmatch'][0]['name']
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+

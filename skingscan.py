@@ -1,8 +1,30 @@
 from route import *
 from utils.character_tools import CharacterTools
 from config.text_config import *
+from config.config import *
 from scanner.collect_message import collect_message
 from scanner.exploiter import vulscan
+import logging
+import sys
+import traceback
+
+# 配置日志记录器
+logging.basicConfig(filename=error_log, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def global_exception_handler(exctype, value, tb):
+    # 记录异常信息到日志文件
+    logging.error(f"Unhandled exception: {exctype}, {value}")
+    logging.error("".join(traceback.format_tb(tb)))
+
+    # 提示用户输入错误，并提示查看日志信息
+    CharacterTools.show("[-]出现异常，请检查输入内容是否正确，并查看error.log错误日志信息",blue)
+    # 继续程序执行
+    pass
+
+# 设置全局异常处理器
+sys.excepthook = global_exception_handler
+
+
 def main():
     CharacterTools.show(logo)
     while True:
@@ -45,4 +67,8 @@ def main():
             CharacterTools.show("未指定参数或使用了无效参数，请使用 help 查看可用参数",blue)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        global_exception_handler(type(e), e, e.__traceback__)
+
