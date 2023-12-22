@@ -1,6 +1,8 @@
 import difflib
+import re
 from bs4 import BeautifulSoup
 from config.text_config import *
+
 
 class CharacterTools:
     def __init__(self):
@@ -79,10 +81,59 @@ class CharacterTools:
         string = str(string)
         if model == green:
             print('\033[32m' + string + '\033[0m')
-        elif model == blue:
-            print('\033[34m' + string + '\033[0m')
+        elif model == yellow:
+            print('\033[93m' + string + '\033[0m')
         elif model == red:
             print('\033[31m' + string + '\033[0m')
+
+    #检查输入的参数
+    @staticmethod
+    def check_input_type(input_string, mode=OTHER):
+        if mode == URL:  # 检测URL
+            url_pattern = r'^(http|https)://[^\s/$.?#].[^\s]*$'
+            return bool(re.match(url_pattern, input_string))
+        elif mode == IP:  # 检测IP地址
+            ip_pattern = r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$'
+            return bool(re.match(ip_pattern, input_string))
+        elif mode == PORT:  # 检测端口号（0 - 65535）
+            try:
+                port = int(input_string)
+                return 0 <= port <= 65535
+            except ValueError:
+                return False
+        else:
+            return True
+
+    # 将http数据包修改为poc_payload对应对的格式
+    @staticmethod
+    def get_payload_by_http(http_message, cmd=None):
+        lines = http_message.split('\n')
+        method, path, http_version = lines[0].split()
+        headers = {}
+        data = {}
+        data_flag = False
+        for line in lines[1:]:
+            if not line.strip():
+                data_flag = True
+                continue
+
+            if data_flag:
+                key, value = line.split(':', 1)
+                data[key.strip()] = value.strip()
+
+        exploit_payload = {
+            "method": method,
+            "path": path,
+            "http_version": http_version,
+            "headers": headers,
+            "data": data,
+            "body": None
+        }
+        # 如果存在可控参数
+        if cmd:
+           exploit_payload[cmd] = "{{ variables.value }}"
+
+        return exploit_payload
 
 
 if __name__ == "__main__":

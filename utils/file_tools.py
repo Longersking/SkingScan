@@ -12,30 +12,30 @@ class FileTools:
             file = open(file_path, mode)
             return file
         except FileNotFoundError:
-            CharacterTools.show(f"文件 '{file_path}' 未找到.",blue)
+            CharacterTools.show(f"文件 '{file_path}' 未找到.",yellow)
         except Exception as e:
-            CharacterTools.show(f"An error occurred: {e}",blue)
+            CharacterTools.show(f"An error occurred: {e}",yellow)
 
     @staticmethod
     def read_file(file):
         if file:
             return file.read()
         else:
-            CharacterTools.show("文件无法打开",blue)
+            CharacterTools.show("文件无法打开",yellow)
 
     @staticmethod
     def write_to_file(file, data):
         if file:
             file.write(data)
         else:
-            CharacterTools.show("文件无法打开",blue)
+            CharacterTools.show("文件无法打开",yellow)
 
     @staticmethod
     def close_file(file):
         if file:
             file.close()
         else:
-            CharacterTools.show("文件无法打开",blue)
+            CharacterTools.show("文件无法打开",yellow)
 
     @staticmethod
     def open_json_file(file_path, mode='r'):
@@ -43,9 +43,9 @@ class FileTools:
             with open(file_path, mode) as file:
                 return json.load(file)
         except FileNotFoundError:
-            CharacterTools.show(f"JSON文件 '{file_path}' 未找到.", blue)
+            CharacterTools.show(f"JSON文件 '{file_path}' 未找到.", yellow)
         except Exception as e:
-            CharacterTools.show(f"读取JSON文件时出错: {e}", blue)
+            CharacterTools.show(f"读取JSON文件时出错: {e}", yellow)
 
     @staticmethod
     def write_json_file(file_path, data):
@@ -53,7 +53,7 @@ class FileTools:
             with open(file_path, 'w') as file:
                 json.dump(data, file, indent=4)
         except Exception as e:
-            CharacterTools.show(f"写入JSON文件时出错: {e}", blue)
+            CharacterTools.show(f"写入JSON文件时出错: {e}", yellow)
 
     @staticmethod
     def read_data_file(file_path):
@@ -62,9 +62,9 @@ class FileTools:
             with open(file_path, 'r') as file:
                 return file.read()
         except FileNotFoundError:
-            CharacterTools.show(f"Data文件 '{file_path}' 未找到.", blue)
+            CharacterTools.show(f"Data文件 '{file_path}' 未找到.", yellow)
         except Exception as e:
-            CharacterTools.show(f"读取Data文件时出错: {e}", blue)
+            CharacterTools.show(f"读取Data文件时出错: {e}", yellow)
 
     @staticmethod
     def write_data_file(file_path, data):
@@ -73,7 +73,7 @@ class FileTools:
             with open(file_path, 'w') as file:
                 file.write(data)
         except Exception as e:
-            CharacterTools.show(f"写入Data文件时出错: {e}", blue)
+            CharacterTools.show(f"写入Data文件时出错: {e}", yellow)
 
     @staticmethod
     def read_log_file(file_path):
@@ -82,9 +82,9 @@ class FileTools:
             with open(file_path, 'r') as file:
                 return file.read()
         except FileNotFoundError:
-            CharacterTools.show(f"日志文件 '{file_path}' 未找到.", blue)
+            CharacterTools.show(f"日志文件 '{file_path}' 未找到.", yellow)
         except Exception as e:
-            CharacterTools.show(f"读取日志文件时出错: {e}", blue)
+            CharacterTools.show(f"读取日志文件时出错: {e}", yellow)
 
     @staticmethod
     def write_log_file(file_path, log_data):
@@ -93,7 +93,7 @@ class FileTools:
             with open(file_path, 'a') as file:
                 file.write(log_data)
         except Exception as e:
-            CharacterTools.show(f"写入日志文件时出错: {e}", blue)
+            CharacterTools.show(f"写入日志文件时出错: {e}", yellow)
 
     @staticmethod
     def read_excel_file(file_path):
@@ -101,9 +101,9 @@ class FileTools:
             # 使用Pandas库读取Excel文件
             return pd.read_excel(file_path)
         except FileNotFoundError:
-            CharacterTools.show(f"Excel文件 '{file_path}' 未找到.", blue)
+            CharacterTools.show(f"Excel文件 '{file_path}' 未找到.", yellow)
         except Exception as e:
-            CharacterTools.show(f"读取Excel文件时出错: {e}", blue)
+            CharacterTools.show(f"读取Excel文件时出错: {e}", yellow)
 
     @staticmethod
     def write_excel_file(file_path, data_frame):
@@ -111,7 +111,7 @@ class FileTools:
             # 使用Pandas库将数据写入Excel文件
             data_frame.to_excel(file_path, index=False)
         except Exception as e:
-            CharacterTools.show(f"写入Excel文件时出错: {e}", blue)
+            CharacterTools.show(f"写入Excel文件时出错: {e}", yellow)
 
     # 建立文件索引表
     @staticmethod
@@ -138,7 +138,7 @@ class FileTools:
             with open(filename, 'rb') as file:
                 return pickle.load(file)
         except FileNotFoundError as e:
-            CharacterTools.show("[-]未建立文件索引",blue)
+            CharacterTools.show("[-]未建立文件索引",yellow)
 
 
 if __name__ == '__main__':

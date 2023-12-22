@@ -90,6 +90,7 @@ class HTTPTools:
         return parsed_url,query_parameters
 
 
+    # 更新url
     @staticmethod
     def update_url(parsed_url,query_parameters,param_name,new_value):
         temp_query_parameters = deepcopy(query_parameters)
@@ -102,6 +103,7 @@ class HTTPTools:
         return new_url
 
 
+    # 修改url的参数
     @staticmethod
     def update_url_parameters(parsed_url,query_parameters,new_parameters):
         temp_query_parameters = deepcopy(query_parameters)
@@ -119,6 +121,8 @@ class HTTPTools:
         # query_parameters = temp_query_parameters
         # print("1",query_parameters)
         return new_url
+
+
 
 # 示例用法
 if __name__ == "__main__":

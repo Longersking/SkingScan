@@ -20,3 +20,7 @@ def dirs_function():
     print("日志目录:", LOG_DIR)
     print("配置文件目录:", CONFIG_DIR)
     print("工具目录",UTIL_DIR)
+
+
+if __name__ == '__main__':
+    dirs_function()

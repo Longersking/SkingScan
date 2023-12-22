@@ -5,6 +5,7 @@ from utils.character_tools import CharacterTools
 from utils.file_tools import FileTools
 from config.text_config import *
 import datetime
+
 # from concurrent.futures import ThreadPoolExecutor
 # from tqdm import tqdm
 from route import *
@@ -33,7 +34,7 @@ class WebsiteInfo:
                 self.scan_result = nm.scan(self.host, arguments='-T4 -n -Pn -O',ports="20-14000")['scan']
             # CharacterTools.show(self.scan_result)
         except nmap.PortScannerError as e:
-            CharacterTools.show(f"扫描错误: {e}",blue)
+            CharacterTools.show(f"扫描错误: {e}",yellow)
 
 
     def get_ip(self):
@@ -42,7 +43,7 @@ class WebsiteInfo:
         elif 'ipv6' in self.scan_result[self.host]['addresses']:
             self.ip_address = self.scan_result[self.host]['addresses']['ipv6']
         else:
-            CharacterTools.show("未检测到对方ip信息",blue)
+            CharacterTools.show("未检测到对方ip信息",yellow)
     def get_open_ports(self):
         self.ports = list(self.product.keys())
         # CharacterTools.show(self.ports)
@@ -52,7 +53,7 @@ class WebsiteInfo:
         try:
             self.os = self.scan_result[self.host]['osmatch'][0]['name']
         except IndexError as e:
-            CharacterTools.show(f'[-]无法获取目标操作系统信息,问题显示{e}',blue)
+            CharacterTools.show(f'[-]无法获取目标操作系统信息,问题显示{e}',yellow)
         # CharacterTools.show(self.os)
 
     def get_product(self):

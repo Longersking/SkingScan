@@ -40,3 +40,415 @@
     self.os = self.scan_result[self.host]['osmatch'][0]['name']
               ~~~~~~~~~~~~~~~~^^^^^^^^^^^
 
+2023-12-21 18:23:26,971 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-21 18:23:26,971 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 74, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in main
+    vulscan.vulscan()
+  File "D:\python_project\SkingScan\scanner\exploiter\vulscan.py", line 171, in vulscan
+    command = input("vulscan > ").strip()
+              ^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-21 18:24:24,996 - ERROR - Unhandled exception: <class 'urllib.error.URLError'>, <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+2023-12-21 18:24:24,999 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 74, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in main
+    vulscan.vulscan()
+  File "D:\python_project\SkingScan\scanner\exploiter\vulscan.py", line 196, in vulscan
+    vulscan.run()
+  File "D:\python_project\SkingScan\scanner\exploiter\vulscan.py", line 124, in run
+    HTTPTools.send_http_request(url=self.url, headers=self.headers,request_data=self.post_data,proxies=proxies,method=self.http_method)
+  File "D:\python_project\SkingScan\utils\http_tools.py", line 41, in send_http_request
+    response = opener.open(request)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\urllib\request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\anaconda3\Lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+
+2023-12-21 18:58:07,740 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-21 18:58:07,741 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 74, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in main
+    vulscan.vulscan()
+  File "D:\python_project\SkingScan\scanner\exploiter\vulscan.py", line 175, in vulscan
+    while True:
+                
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-21 21:40:41,409 - ERROR - Unhandled exception: <class 'OSError'>, [Errno 22] Invalid argument: 'r"C:\\Users\\longersking\\Desktop\\1.txt"'
+2023-12-21 21:40:41,410 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 146, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 135, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in add_poc
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+
+2023-12-21 21:40:56,208 - ERROR - Unhandled exception: <class 'OSError'>, [Errno 22] Invalid argument: '"C:\\Users\\longersking\\Desktop\\1.txt"'
+2023-12-21 21:40:56,208 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 146, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 135, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in add_poc
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+
+2023-12-21 21:41:44,334 - ERROR - Unhandled exception: <class 'ValueError'>, not enough values to unpack (expected 2, got 1)
+2023-12-21 21:41:44,335 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 146, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 135, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 61, in add_poc
+    key, value = line.strip().split("=")
+    ^^^^^^^^^^
+
+2023-12-21 21:45:17,520 - ERROR - Unhandled exception: <class 'OSError'>, [Errno 22] Invalid argument: '"C:\\Users\\longersking\\Desktop\\1.txt"'
+2023-12-21 21:45:17,520 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 148, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 137, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in add_poc
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+
+2023-12-21 21:45:41,381 - ERROR - Unhandled exception: <class 'UnboundLocalError'>, cannot access local variable 'line' where it is not associated with a value
+2023-12-21 21:45:41,382 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 148, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 137, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 59, in add_poc
+    if "=" in line:
+              ^^^^
+
+2023-12-21 21:46:00,742 - ERROR - Unhandled exception: <class 'FileNotFoundError'>, [Errno 2] No such file or directory: '2023-12-21'
+2023-12-21 21:46:00,743 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 148, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 137, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in add_poc
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+
+2023-12-21 21:47:52,256 - ERROR - Unhandled exception: <class 'UnboundLocalError'>, cannot access local variable 'line' where it is not associated with a value
+2023-12-21 21:47:52,257 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 148, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 137, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 59, in add_poc
+    if "=" in line:
+              ^^^^
+
+2023-12-21 21:49:51,442 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-21 21:49:51,442 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 148, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 103, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 17:19:49,235 - ERROR - Unhandled exception: <class 'OSError'>, [Errno 22] Invalid argument: '"C:\\Users\\longersking\\Desktop\\1.txt"'
+2023-12-22 17:19:49,235 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 149, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 138, in main
+    add_poc(additional_arg)
+  File "D:\python_project\SkingScan\skingscan.py", line 57, in add_poc
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 17:20:56,456 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 17:20:56,456 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 149, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 104, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 17:29:24,999 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 17:29:24,999 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 150, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 105, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 18:02:05,829 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 18:02:05,830 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 155, in <module>
+    break
+  File "D:\python_project\SkingScan\skingscan.py", line 105, in main
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 18:28:07,213 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 18:28:07,213 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 167, in <module>
+    try:
+        ^
+  File "D:\python_project\SkingScan\skingscan.py", line 117, in main
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 18:28:55,594 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 18:28:55,594 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 168, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 118, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:11:52,217 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:11:52,217 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 174, in <module>
+    return None
+    ^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 124, in main
+    #                 if "=" in line:  # 如果在
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:12:02,311 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:12:02,311 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 234, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 184, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:13:37,696 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:13:37,696 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 235, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 226, in main
+    add_poc()
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:14:15,191 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:14:15,191 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 236, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 227, in main
+    add_poc()
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:15:10,703 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:15:10,703 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 236, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 185, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:15:40,352 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:15:40,353 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 237, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 228, in main
+    add_poc()
+  File "D:\python_project\SkingScan\skingscan.py", line 82, in add_poc
+    method = input(">>method ")
+             ^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:16:07,216 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:16:07,217 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 238, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 229, in main
+    add_poc()
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:48:57,050 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:48:57,051 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 238, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 187, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 19:49:35,848 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 19:49:35,848 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 242, in <module>
+  File "D:\python_project\SkingScan\skingscan.py", line 233, in main
+    else:
+        ^^
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 20:47:50,490 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 20:47:50,491 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 240, in <module>
+    #     add_poc(file_path)
+    ^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 189, in main
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}",yellow)
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 20:53:18,326 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 20:53:18,327 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 252, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 243, in main
+    add_poc()
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 20:57:01,923 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 20:57:01,924 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 255, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 246, in main
+    print(add_poc())
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 74, in add_poc
+    command = input("请输入对应指令:")
+              ^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 20:58:05,268 - ERROR - Unhandled exception: <class 'KeyError'>, 'name'
+2023-12-22 20:58:05,268 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 257, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 248, in main
+    print(add_poc())
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 125, in add_poc
+    missing_fields = [field for field in required_fields if
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 126, in <listcomp>
+    poc["vulnerability"]["exploit"]["variables"][field] is None]
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+
+2023-12-22 21:19:26,975 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:19:26,976 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 267, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:21:30,902 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:21:30,902 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 267, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:22:29,738 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:22:29,739 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 267, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:24:48,247 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:24:48,248 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 267, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:25:41,312 - ERROR - Unhandled exception: <class 'FileNotFoundError'>, [Errno 2] No such file or directory: 'D:\\python_project\\SkingScan\\data/pocs/awda/awda.json'
+2023-12-22 21:25:41,313 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 267, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 254, in main
+    with open(poc_outfile,'w') as file:
+         ^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:42:13,999 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:42:14,000 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 270, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:46:25,721 - ERROR - Unhandled exception: <class 'KeyboardInterrupt'>, 
+2023-12-22 21:46:25,721 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 271, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 208, in main
+    command = input("SkingScan > ").strip()  # 获取用户输入的命令并去除首尾空格
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+
+2023-12-22 21:46:54,451 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:46:54,452 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 270, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 130, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}", yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:49:10,935 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:49:10,935 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 130, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}", yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:49:21,529 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:49:21,529 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 130, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}", yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:49:55,210 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:49:55,212 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 130, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}", yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:50:55,233 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:50:55,234 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 196, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}",yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:51:12,794 - ERROR - Unhandled exception: <class 'TypeError'>, can only join an iterable
+2023-12-22 21:51:12,795 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 250, in main
+    poc = add_poc()
+          ^^^^^^^^^
+  File "D:\python_project\SkingScan\skingscan.py", line 196, in add_poc
+    CharacterTools.show(f"[-]以下必填字段存在未填写项：{', '.join(missing_fields)}",yellow)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2023-12-22 21:52:02,436 - ERROR - Unhandled exception: <class 'TypeError'>, 'NoneType' object is not subscriptable
+2023-12-22 21:52:02,436 - ERROR -   File "D:\python_project\SkingScan\skingscan.py", line 273, in <module>
+    main()
+  File "D:\python_project\SkingScan\skingscan.py", line 254, in main
+    poc_dir = DATA_DIR + r"/pocs/" + str(poc["vulnerability"]["name"]) + r"/"
+                                         ~~~^^^^^^^^^^^^^^^^^
+
