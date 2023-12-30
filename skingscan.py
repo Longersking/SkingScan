@@ -135,58 +135,7 @@ def add_poc():
         else:
             CharacterTools.show("[-]无效指令，请重新输入有效指令", yellow)
 
-    # try:
-    #     with open(file_path, 'r') as file:
-    #         lines = [line.strip() for line in file.readlines()]  # 去除空格字符
-    #         if "=" in "".join(lines):  # 检查是否有'='在其中
-    #             http_payload_started = False
-    #             http_payload_lines = []
-    #             for line in lines:
-    #                 if "=" in line:  # 如果在
-    #                     key, value = line.split("=")
-    #                     key = key.strip()
-    #                     value = value.strip()
-    #                     # print(value)
-    #                     if http_payload_started:
-    #                         http_payload_lines.append(line)
-    #                     elif key == "name":
-    #                         poc["vulnerability"]['name'] = value
-    #                         print(value)
-    #                     elif key == "type":
-    #                         poc["vulnerability"]['type'] = value if value != "null" else None
-    #                     elif key == "affected_software":
-    #                         poc["vulnerability"]["affected_software"] = value if value != "null" else None
-    #                     elif key == "method":
-    #                         poc["vulnerability"]["exploit"]["method"] = value
-    #                         if value == "http":
-    #                             http_payload_started = True
-    #                     elif key == "lhost":
-    #                         poc["vulnerability"]["exploit"]["variables"]["lhost"] = value if value != "" else None
-    #                     elif key == "lport":
-    #                         poc["vulnerability"]["exploit"]["variables"]["lport"] = value if value != "" else None
-    #                     elif key == "rhost":
-    #                         poc["vulnerability"]["exploit"]["variables"]["rhost"] = value if value != "" else None
-    #                     elif key == "rport":
-    #                         poc["vulnerability"]["exploit"]["variables"]["rport"] = value if value != "" else None
-    #                     elif key == "values":
-    #                         poc["vulnerability"]["exploit"]["variables"]["values"] = [value] if value != "" else None
-    #                     elif key == "payload":
-    #                         if poc["vulnerability"]["exploit"]["method"] == 'command':
-    #                             poc["vulnerability"]["exploit"]["exploit_payload"] = value
-    #                         elif poc["vulnerability"]["exploit"]["method"] == 'http':
-    #                             poc["vulnerability"]["exploit"]["exploit_payload"] = '\n'.join(http_payload_lines)
-    #                     else:
-    #                         if http_payload_started:
-    #                             poc["vulnerability"]["exploit"]["exploit_payload"] = '\n'.join(http_payload_lines)
-    #                         else:
-    #                             continue
-    #         else:
-    #             CharacterTools.show("[-]poc数据格式错误，缺少'='字符", yellow)
-    # except FileNotFoundError or FileExistsError as e:
-    #     CharacterTools.show(f'[-]文件无法找到或无法打开,f{e}',yellow)
-    #
-    # print(1)
-    # 检查必填字段是否都有值
+
     missing_fields = False
     if not poc["vulnerability"]["exploit"]["method"] or not poc["vulnerability"]["name"] or not poc["vulnerability"][
         "type"]:
@@ -234,19 +183,7 @@ def main():
         elif command == 'update poc_dic':
             update_poc_dic()
         elif command.startswith('-add'):
-            # parts = command.split()
-            # if len(parts) > 1:
-            #     additional_arg = parts[1]
-            #     # 去除双引号
-            #     if additional_arg.startswith('"') and additional_arg.endswith('"'):
-            #         file_path = additional_arg[1:-1]  # 去除首尾双引号
-            #     else:
-            #         file_path = additional_arg
-            #     # CharacterTools.show(f"-add 参数的值是:{additional_arg}")
-            #     # 在这里执行 -add 参数的操作
-            #     add_poc(file_path)
-            # else:
-            #     CharacterTools.show("缺少 -add 参数的值",yellow)
+
             poc = add_poc()
             choice = input("是否保存？按（N/n）取消")
             if choice == 'N' or choice == 'n':

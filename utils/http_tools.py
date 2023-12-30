@@ -31,15 +31,18 @@ class HTTPTools:
 
     @staticmethod
     def send_http_request(url, request_data=None, headers=None, proxy_method='http',proxies=None,method='GET'):
-        if proxies:  # 如果传入了代理地址和端口
-            http_proxy_handler = urllib.request.ProxyHandler({proxy_method: proxies})
-            opener = urllib.request.build_opener(http_proxy_handler)
-        else:  # 如果没有传入代理地址和端口
-            opener = urllib.request.build_opener()
-        request_data = json.dumps(request_data).encode('utf-8')
-        request = urllib.request.Request(url=url, headers=headers, data=request_data,method=method)
-        response = opener.open(request)
-        print(response.read().decode('utf-8'))
+        try:
+            if proxies:  # 如果传入了代理地址和端口
+                http_proxy_handler = urllib.request.ProxyHandler({proxy_method: proxies})
+                opener = urllib.request.build_opener(http_proxy_handler)
+            else:  # 如果没有传入代理地址和端口
+                opener = urllib.request.build_opener()
+            request_data = json.dumps(request_data).encode('utf-8')
+            request = urllib.request.Request(url=url, headers=headers, data=request_data,method=method)
+            response = opener.open(request)
+            print(response.read().decode('utf-8'))
+        except Exception as e:
+            print(f"[-]出现错误,error{e}")
 
 
 

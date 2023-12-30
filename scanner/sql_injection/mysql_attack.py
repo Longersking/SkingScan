@@ -44,6 +44,7 @@ class MysqlAttack:
             192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207,208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223,
             224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239,240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255
         ]
+    # sqlmap
     # def get_available_argv(self):
     #     # print(self.query_parameters)
     #     # 标记原始字长
@@ -150,7 +151,7 @@ class MysqlAttack:
         # print(len(HTTPTools.send_get_request(url).content))
 
 if __name__ == "__main__":
-    url = "http://127.0.0.1/pikachu-master/vul/sqli/sqli_str.php?name=1%27&submit=%E6%9F%A5%E8%AF%A2"
+    url = "http://127.0.0.1/pikachu-master/vul/sqli/sqli_str.php?name=1&submit=%E6%9F%A5%E8%AF%A2"
     mysql_attack = MysqlAttack(url=url)
     mysql_attack.main(url)
     print(mysql_attack.database)

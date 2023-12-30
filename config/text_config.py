@@ -5,7 +5,7 @@ logo = """  ____    _      _                   ____
  |____/  |_|\_\ |_| |_| |_|  \__, | |____/   \___|  \__,_| |_| |_|
                              |___/                                
 
- 
+ 开放团队:longersking
  项目以放入github:https://github.com/Longersking/SkingScan                            
 """
 # skingscan模块提示
